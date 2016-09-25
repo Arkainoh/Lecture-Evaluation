@@ -1,0 +1,130 @@
+
+insert into department values ('컴퓨터학과');
+insert into department values ('경영학과');
+insert into department values ('영어영문학과');
+insert into department values ('통계학과');
+insert into department values ('국어국문학과');
+insert into department values ('기계공학과');
+insert into department values ('화학공학과');
+insert into department values ('경제학과');
+insert into department values ('철학과');
+
+insert into question values (0, '아버지 성함은?');
+insert into question values (1, '어머니 성함은?');
+insert into question values (2, '출신 초등학교는?');
+insert into question values (3, '출신 중학교는?');
+insert into question values (4, '출신 대학교는?');
+insert into question values (5, '가장 친한 친구의 이름은?');
+insert into question values (6, '가장 싫어하는 친구의 이름은?');
+insert into question values (7, '여자친구의 이름은?');
+insert into question values (8, '남자친구의 이름은?');
+insert into question values (9, '가장 기억하고 싶지 않은 사건은?');
+insert into question values (10, '가장 기억에 남는 사건은?');
+
+insert into instructor values (0, '연돈','정','컴퓨터학과');
+insert into instructor values (1, '태원','서','컴퓨터학과');
+insert into instructor values (2, '기호','김','영어영문학과');
+insert into instructor values (3, '성기','민','컴퓨터학과');
+insert into instructor values (4, '헌창','유','컴퓨터학과');
+insert into instructor values (5, '지언','황','영어영문학과');
+insert into instructor values (6, '의춘','양','영어영문학과');
+insert into instructor values (7, '혜주','박','영어영문학과');
+insert into instructor values (8, '혁','유','컴퓨터학과');
+insert into instructor values (9, '동욱','김','영어영문학과');
+insert into instructor values (10, '효곤','김','컴퓨터학과');
+insert into instructor values (11, '재걸','주','컴퓨터학과');
+insert into instructor values (12, '경수','김','철학과');
+insert into instructor values (13, '현철','김','컴퓨터학과');
+
+insert into course values('COSE371', '데이터베이스', '컴퓨터학과', 3, 'major');
+insert into course values('COSE221', '논리설계', '컴퓨터학과', 3, 'major');
+insert into course values('ENGL361', '영어발달사', '영어영문학과', 3, 'major');
+insert into course values('PHIL103', '경제와윤리', null, 3, 'non_major');
+insert into course values('COSE361', '인공지능', '컴퓨터학과', 3, 'major');
+
+insert into section values('COSE371', '03', 'first', 2016);
+insert into section values('COSE221', '01', 'first', 2016);
+insert into section values('ENGL361', '00', 'first', 2016);
+insert into section values('PHIL103', '00', 'first', 2016);
+insert into section values('COSE361', '02', 'first', 2016);
+
+insert into timeslot values('월',1 ,0900 , 1030);
+insert into timeslot values('화',1 ,0900 , 1030);
+insert into timeslot values('수',1 , 0900, 1030);
+insert into timeslot values('목',1 , 0900, 1030);
+insert into timeslot values('금',1 ,0900 , 1030);
+insert into timeslot values('월',2 ,1030 , 1145);
+insert into timeslot values('화',2 ,1030 , 1145);
+insert into timeslot values('수',2 , 1030, 1145);
+insert into timeslot values('목',2 , 1030, 1145);
+insert into timeslot values('금',2 ,1030 , 1145);
+insert into timeslot values('월',3 ,1200 , 1250);
+insert into timeslot values('화',3 ,1200 , 1250);
+insert into timeslot values('수',3 , 1200, 1250);
+insert into timeslot values('목',3 , 1200, 1250);
+insert into timeslot values('금',3 ,1200 , 1250);
+insert into timeslot values('월',4 ,1300 , 1350);
+insert into timeslot values('화',4 ,1300 , 1350);
+insert into timeslot values('수',4 , 1300, 1350);
+insert into timeslot values('목',4 , 1300, 1350);
+insert into timeslot values('금',4 ,1300 , 1350);
+insert into timeslot values('월', 5, 1400, 1515);
+insert into timeslot values('화', 5, 1400, 1515);
+insert into timeslot values('수', 5, 1400, 1515);
+insert into timeslot values('목', 5, 1400, 1515);
+insert into timeslot values('금', 5, 1400, 1515);
+insert into timeslot values('월', 6, 1530, 1645);
+insert into timeslot values('화', 6, 1530, 1645);
+insert into timeslot values('수', 6, 1530, 1645);
+insert into timeslot values('목', 6, 1530, 1645);
+insert into timeslot values('금', 6, 1530, 1645); 
+insert into timeslot values('월', 7, 1700, 1750);
+insert into timeslot values('화', 7, 1700, 1750);
+insert into timeslot values('수', 7, 1700, 1750);
+insert into timeslot values('목', 7, 1700, 1750);
+insert into timeslot values('금', 7, 1700, 1750); 
+insert into timeslot values('월', 8, 1800, 1850);
+insert into timeslot values('화', 8, 1800, 1850);
+insert into timeslot values('수', 8, 1800, 1850);
+insert into timeslot values('목', 8, 1800, 1850);
+insert into timeslot values('금', 8, 1800, 1850);
+
+
+
+insert into classroom values('우정정보관', '205', 80);
+insert into classroom values('우정정보관', '601', 100);
+insert into classroom values('서관', '215', 80);
+insert into classroom values('교양관', '402', 60);
+insert into classroom values('미래융합', '101', 60);
+insert into classroom values('우정정보관', '201', 80);
+insert into classroom values('과도관', '615', 100);
+insert into classroom values('우정정보관', '202', 80);
+
+insert into sec_time_class values ('COSE371', '03', 'first', 2016, '월', 6, '우정정보관', '601');
+insert into sec_time_class values ('COSE371', '03', 'first', 2016, '수', 6, '우정정보관', '601');
+insert into sec_time_class values ('COSE221', '01', 'first', 2016, '월', 5, '우정정보관', '205');
+insert into sec_time_class values ('COSE221', '01', 'first', 2016, '수', 5, '우정정보관', '205');
+insert into sec_time_class values ('ENGL361', '00', 'first', 2016, '화', 2, '서관', '215');
+insert into sec_time_class values ('ENGL361', '00', 'first', 2016, '목', 2, '서관', '215');
+insert into sec_time_class values ('PHIL103', '00', 'first', 2016, '월', 5, '교양관', '402');
+insert into sec_time_class values ('PHIL103', '00', 'first', 2016, '수', 5, '교양관', '402');
+insert into sec_time_class values ('COSE361', '02', 'first', 2016, '화', 7, '우정정보관', '205');
+insert into sec_time_class values ('COSE361', '02', 'first', 2016, '화', 8, '우정정보관', '205');
+insert into sec_time_class values ('PHIL103', '00', 'first', 2016, '목', 7, '우정정보관', '205');
+
+insert into teaches values(0, 'COSE371', '03', 'first', 2016);
+insert into teaches values(1, 'COSE221', '01', 'first', 2016);
+insert into teaches values(2 , 'ENGL361', '00', 'first', 2016);
+insert into teaches values(12, 'PHIL103', '00', 'first', 2016);
+insert into teaches values(13, 'COSE361', '02', 'first', 2016);
+
+insert into student values ('2012130888', '인호', '김', '영어영문학과');
+insert into user_account values('admin@kiminho.com', 'admin', '2012130888', '1234', '0', '안알랴줌');
+insert into student values ('2012123456', '길동', '홍', '국어국문학과');
+insert into user_account values('gildong@hong.com', 'GD홍', '2012123456', '4321', '1', '몰라요');
+
+insert into evaluation values('admin@kiminho.com', 'COSE371', '03', 'first', 2016, 3, 4, '나름 괜찮았습니다. 배우는 게 정말 많고 교수님이 매우 좋으신 분입니다.');
+
+insert into evaluation values('admin@kiminho.com', 'COSE221', '01', 'first', 2016, 7, 5, '과제가 기본적으로 매주 있기 때문에 바쁘신 분이라면 비추합니다. 그래도 과제가 많은 만큼 얻어가는 것도 많습니다.');
+
+insert into evaluation values('gildong@hong.com', 'COSE221', '01', 'first', 2016, 3, 4, '제가 영어를 못해서 하나도 이해를 못했습니다. 그런데 서태원 교수님은 곧 사랑입니다.');

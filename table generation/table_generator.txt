@@ -1,0 +1,129 @@
+drop table evaluation;
+drop table teaches;
+drop table sec_time_class;
+drop table section;
+drop table timeslot;
+drop table classroom;
+drop table course;
+drop table instructor;
+drop table user_account;
+drop table question;
+drop table student;
+drop table department;
+
+
+create table department (
+dept_name varchar(20),
+primary key(dept_name)
+);
+
+create table student (
+studentID char(10),
+firstname char(20) not null,
+lastname char(20) not null,
+dept_name varchar(20) not null,
+primary key(studentID),
+foreign key(dept_name) references department on delete set null on update cascade
+);
+
+create table question (
+questionID varchar(4),
+content varchar(50) not null,
+primary key(questionID)
+);
+
+create table user_account (
+userID varchar(30),
+nickname varchar(20) unique not null,
+studentID char(10) not null,
+userPW varchar(30) not null,
+questionID varchar(4),
+answer varchar(50) not null,
+primary key(userID),
+foreign key(studentID) references student on delete cascade on update cascade,
+foreign key(questionID) references question on delete set null on update cascade
+);
+
+create table instructor (
+instructorID char(10),
+firstname char(20) not null,
+lastname char(20) not null,
+dept_name varchar(20) not null,
+primary key(instructorID),
+foreign key(dept_name) references department on delete set null on update cascade
+);
+
+create table course (
+courseID varchar(10),
+title varchar(50) not null,
+dept_name varchar(20),
+credits numeric(2,0) check (credits > 0),
+type varchar(10) check (type in ('major', 'non_major')) not null,
+primary key(courseID),
+foreign key(dept_name) references department on delete set null on update cascade
+);
+
+create table classroom (
+building varchar(15),
+room_number varchar(7),
+capacity numeric(4,0),
+primary key (building, room_number)
+);
+
+create table timeslot (
+day varchar(4) check(day in ('월','화','수','목','금','토','일')),
+period numeric(2,0) check (period > 0 and period <14),
+start_time numeric(4,0) check (start_time >= 0900),
+end_time numeric(4,0) check (end_time <=2400),
+primary key(day, period)
+);
+
+create table section (
+courseID varchar(8), 
+sectionID varchar(8),
+semester varchar(6) check (semester in ('first', 'second', 'summer', 'winter', 'ISS')), 
+year numeric(4,0) check (year > 1905 and year < 2100), 
+primary key (courseID, sectionID, semester, year),
+foreign key (courseID) references course on delete cascade on update cascade
+);
+
+create table sec_time_class (
+courseID varchar(8),
+sectionID varchar(8),
+semester varchar(6),
+year numeric(4,0),
+day varchar(4),
+period numeric(2,0),
+building varchar(15),
+room_number varchar(7),
+primary key(courseID, sectionID, semester, year, day, period, building, room_number),
+foreign key(courseID, sectionID, semester, year) references section on delete cascade on update cascade,
+foreign key(day, period) references timeslot on delete set null on update cascade,
+foreign key(building, room_number) references classroom on delete set null on update cascade
+);
+
+create table teaches (
+instructorID varchar(5), 
+courseID varchar(8),
+sectionID varchar(8), 
+semester varchar(6),
+year numeric(4,0),
+primary key (instructorID, courseID, sectionID, semester, year),
+foreign key (courseID, sectionID, semester, year) references section on delete cascade on update cascade,
+foreign key (instructorID) references instructor on delete cascade on update cascade
+);
+
+create table evaluation (
+userID varchar(30), 
+courseID varchar(8),
+sectionID varchar(8), 
+semester varchar(6),
+year numeric(4,0),
+likes numeric(6,0),
+rating numeric(2,1) check(rating >= 0 and rating <=5) not null,
+content varchar(300) not null,
+primary key (userID, courseID, sectionID, semester, year),
+foreign key (courseID, sectionID, semester, year) references section on delete cascade on update cascade,
+foreign key (userID) references user_account on delete cascade on update cascade
+);
+
